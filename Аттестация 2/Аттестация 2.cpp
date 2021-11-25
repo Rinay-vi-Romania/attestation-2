@@ -2,27 +2,29 @@
 #include <fstream>
 using namespace std;
 
+void Fill(int mass[], const int N)
+{
+    string path = "file.txt";
+    ifstream file;
+    file.open(path);
 
-
-        int main()
+    for (int i = 0; i < N; i++)
     {
-            string path = "file.txt";
-                const int N = 5;
-            int mass[N] = { 0 };
-            ifstream file;
-            file.open(path);
-            if (!file)
-                return 1;
+        file >> mass[i];
+    }
+}
+void print(int mass[], const int N)
+{
+    for (int i = 0; i < N; i++)
+    {
+        cout << mass[ i ] << " ";
+    }
+}
 
-            for (int i = 0; i < N; i++)
-            {
-                file >> mass[i];
-                cout << mass[i];
-
-            }
-            
-        file.close();
-    return 0;
-      
-       
-        }
+    void main()
+    {
+        const int N=5;
+        int mass[N];
+        Fill(mass, N);
+        print(mass, N);
+    } 
